@@ -1,30 +1,11 @@
-import { useEffect, useState } from "react";
 import Spinner from "./Spinner";
 import styles from "./CityList.module.css";
 import CityItem from "./CityItem";
 import Message from "./Message";
-
-const BASE_URL = "http://localhost:8000";
+import { useCities } from "../context/CitiesContext";
 
 function CityList() {
-  const [cities, setCities] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    async function fetchCities() {
-      try {
-        setIsLoading(true);
-        const res = await fetch(`${BASE_URL}/cities`);
-        const data = await res.json();
-        setCities(data);
-      } catch {
-        alert("There is an error loading cities...");
-      } finally {
-        setIsLoading(false);
-      }
-    }
-    fetchCities();
-  }, []);
+  const { cities, isLoading } = useCities();
 
   if (isLoading) return <Spinner />;
 
