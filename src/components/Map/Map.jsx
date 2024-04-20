@@ -8,12 +8,12 @@ import {
   useMap,
   useMapEvents,
 } from "react-leaflet";
-import { useCities } from "../context/CitiesContext";
-import Button from "./Button";
+import { useCities } from "../../context/CitiesContext";
+import Button from "../Button/Button";
 
 import styles from "./Map.module.css";
-import { useGeolocation } from "../hooks/useGeolocation";
-import { useUrlPosition } from "../hooks/useURLPosition";
+import { useGeolocation } from "../../hooks/useGeolocation";
+import { useUrlPosition } from "../../hooks/useURLPosition";
 
 function Map() {
   const { cities } = useCities();
