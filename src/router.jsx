@@ -9,6 +9,7 @@ import CityList from "./components/CityList/CityList";
 import City from "./components/City/City";
 import Form from "./components/Form/Form";
 import CountriesList from "./components/CountriesList/CountriesList";
+import ProtectedRoute from "./pages/ProtectedRoute";
 
 const router = createBrowserRouter([
   { path: "/", element: <Homepage />, errorElement: <PageNotFound /> },
@@ -26,7 +27,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/app",
-    element: <AppLayout />,
+    element: (
+      <ProtectedRoute>
+        <AppLayout />
+      </ProtectedRoute>
+    ),
     children: [
       {
         path: "/app",
