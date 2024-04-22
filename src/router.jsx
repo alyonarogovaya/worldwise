@@ -1,15 +1,18 @@
+import { lazy } from "react";
 import { createBrowserRouter, Navigate } from "react-router-dom";
-import Homepage from "./pages/Homepage";
-import Product from "./pages/Product";
-import Pricing from "./pages/Pricing";
-import PageNotFound from "./pages/PageNotFound";
-import Login from "./pages/Login";
-import AppLayout from "./pages/AppLayout";
+
 import CityList from "./components/CityList/CityList";
 import City from "./components/City/City";
 import Form from "./components/Form/Form";
 import CountriesList from "./components/CountriesList/CountriesList";
 import ProtectedRoute from "./pages/ProtectedRoute";
+
+const Homepage = lazy(() => import("./pages/Homepage"));
+const Product = lazy(() => import("./pages/Product"));
+const Pricing = lazy(() => import("./pages/Pricing"));
+const PageNotFound = lazy(() => import("./pages/PageNotFound"));
+const Login = lazy(() => import("./pages/Login"));
+const AppLayout = lazy(() => import("./pages/AppLayout"));
 
 const router = createBrowserRouter([
   { path: "/", element: <Homepage />, errorElement: <PageNotFound /> },
